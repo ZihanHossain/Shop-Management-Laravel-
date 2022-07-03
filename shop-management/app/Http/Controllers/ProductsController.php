@@ -13,7 +13,7 @@ class ProductsController extends Controller
 
         $products = Product::all();
 
-        return view('products');
+        return view('products')->with('products', $products);
     }
 
     public function addProduct(Request $request)

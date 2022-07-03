@@ -19,7 +19,10 @@ class LoginController extends Controller
 
         if($user)
         {
-            return view('dashboard');
+            if($user->designation == 'admin')
+                return view('admin_dashboard');
+            else
+                return view('seller_dashboard');
         }
         else
             return redirect()->back()->with('err', 'Username or Password wrong.');

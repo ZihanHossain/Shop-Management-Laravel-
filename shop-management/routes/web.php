@@ -23,3 +23,6 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'validateLogin']);
 Route::get('/products', [ProductsController::class, 'index'])->name('Products');
 Route::post('/add-product', [ProductsController::class, 'addProduct']);
+Route::get('/sell-counter', function(){
+ return view('sell_counter');
+});

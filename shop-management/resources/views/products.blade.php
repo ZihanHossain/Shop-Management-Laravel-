@@ -37,8 +37,9 @@
 		    @endif
         </div>
         <div>
-            @if(isset($products))
-                <table border="bold" style="width: 100%;">
+            @if(count($products)>0)
+                <table class="table table-striped">
+                    <span><h5>Product List</h5></span>
                     <thead>
                         <tr>
                             <td>Name</td>
@@ -47,11 +48,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>a</td>
-                            <td>1</td>
-                            <td>1</td>
-                        </tr>
+                        @foreach($products as $product)
+                            <tr>
+                                <td>{{$product->product_name}}</td>
+                                <td>{{$product->price}}</td>
+                                <td>{{$product->qty}}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             @else
